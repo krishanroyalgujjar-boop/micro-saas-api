@@ -1,15 +1,14 @@
 import streamlit as st
 import requests
 
-# Render par jo live URL mila hai wo yahan daal
+# Apna Render backend ka live URL yahan daal
 API_URL = "https://micro-saas-api-u0ny.onrender.com"
 
 st.set_page_config(page_title="AI Payload Refiner API", page_icon="⚡", layout="centered")
 
 st.title("⚡ AI JSON & Text Payload Refiner API")
-st.markdown("Convert raw messy text into clean, structured JSON instantly. **₹1.00 per API call.**")
+st.markdown("Convert raw messy text into clean, structured JSON instantly using Llama 3. **₹1.00 per API call.**")
 
-# Tab navigation
 tab1, tab2 = st.tabs(["🔑 Get API Key", "🚀 Test Refiner API"])
 
 with tab1:
@@ -44,7 +43,7 @@ with tab2:
                 result = res.json()
                 st.success(f"Success! Deducted: ₹{result['deducted_inr']}")
                 st.markdown(f"**Remaining Balance:** ₹{result['remaining_balance_inr']}")
-                st.json(result["data"])
+                st.code(result["data"], language="json")
             elif res.status_code == 402:
                 st.error("Insufficient Balance! Please top up your wallet.")
             else:
