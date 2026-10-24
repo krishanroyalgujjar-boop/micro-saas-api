@@ -1,6 +1,6 @@
 import os
 import redis
-from fastapi import FastAPI, Header, HTTPException, Depends
+from fastapi import FastAPI, Header, HTTPException, Depends, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import requests
@@ -38,7 +38,7 @@ def home():
     return {"status": "API is running successfully ⚡"}
 
 @app.post("/v1/auth/create-key")
-def create_api_key(email: str):
+def create_api_key(email: str = Query(...)):
     import uuid
     api_key = f"sk_live_{uuid.uuid4().hex}"
     
