@@ -1,8 +1,8 @@
 import streamlit as st
 import requests
 
-# YAHAN APNA ACTUAL RENDER BACKEND URL DALO (e.g., https://micro-saas-api-xxxx.onrender.com)
-API_URL = "https://<apna-backend-service-name>.onrender.com"
+# YAHAN APNA ASAL RENDER BACKEND URL DALO (Bina kisi <> brackets ke)
+API_URL = "https://micro-saas-api-xxxx.onrender.com"
 
 st.set_page_config(page_title="AI Payload Refiner API", page_icon="⚡", layout="centered")
 
